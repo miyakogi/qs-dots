@@ -5,7 +5,10 @@ import QtQuick
 import QtQuick.Effects
 
 Variants {
+  id: root
+  
   required property string screenName
+  required property var desktopColor
 
   model: [Quickshell.screens.find(s => s.name == screenName)]
 
@@ -34,7 +37,7 @@ Variants {
     StyledRect {
       anchors.fill: parent
       opacity: 0.0
-      color: "black"
+      color: desktopColor
     }
 
     Item {
@@ -45,6 +48,7 @@ Variants {
 
       Border {
         isMain: screenName == "DP-1"
+        desktopColor: root.desktopColor
       }
     }
 
@@ -53,7 +57,7 @@ Variants {
       source: background
       shadowEnabled: true
       blurMax: 15
-      shadowColor: Qt.alpha("black", 0.9)
+      shadowColor: Qt.alpha(desktopColor, 0.9)
     }
   }
 }

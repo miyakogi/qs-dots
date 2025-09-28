@@ -7,6 +7,7 @@ Item {
   id: root
 
   required property bool isMain
+  required property var desktopColor
 
   anchors.fill: parent
 
@@ -14,7 +15,7 @@ Item {
     id: rect
 
     anchors.fill: parent
-    color: "black"
+    color: desktopColor
     visible: false
   }
 
